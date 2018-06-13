@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+  html, body {
+    margin: 0;
+    font-family: sans-serif;
+  }
+  .label {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+    width: 945px;
+    height: 732px;
+    /* border: 1px solid #CCC; */
+  }
+  .name {
+    font-size: 120px;
+    text-align: center;
+  }
+  .event {
+    text-align: center;
+    font-size: 40px;
+    line-height: 65px;
+  }
+  .logo {
+  }
+  .qr {
+    width: 300px;
+  }
+  .qr img {
+    width: 200%;
+  }
+  img {
+    max-width: 100%;
+  }
+  </style>
+</head>
+<body>
+<div class="label">
+  <div class="logo"><img src="https://www.split.io/product/languages/ruby-sdk/ruby-lang/"/></div>
+  <div class="name">Kevin Simper</div>
+  <div class="event">Copenhagen<br/>Ruby Brigade<br/>13th June</div>
+  <div class="qr"><img src="qr.png"/></div>
+</div>
+</body>
+</html>
