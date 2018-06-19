@@ -20,12 +20,13 @@
     /* border: 1px solid #CCC; */
   }
   .name {
+    width: 600px;
     font-size: 120px;
     text-align: center;
   }
   .event {
     text-align: center;
-    font-size: 40px;
+    font-size: 50px;
     line-height: 65px;
   }
   .logo {
@@ -43,10 +44,20 @@
 </head>
 <body>
 <div class="label">
-  <div class="logo"><img src="https://www.split.io/product/languages/ruby-sdk/ruby-lang/"/></div>
-  <div class="name">Kevin Simper</div>
-  <div class="event">Copenhagen<br/>Ruby Brigade<br/>13th June</div>
+  <div class="logo"><img src="docker.png"/></div>
+  <div class="name">
+    <div>##FIRSTNAME##</div>
+    <div>##LASTNAME##</div>
+  </div>
+  <div class="event">Docker<br/>Copenhagen<br/>19th June</div>
   <div class="qr"><img src="qr.png"/></div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/fitty@2.2.5/dist/fitty.min.js"></script>
+<script>
+fitty('.name > div', {
+  multiLine: true,
+  maxSize: 160
+});
+</script>
 </body>
 </html>
