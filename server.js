@@ -7,7 +7,9 @@ app.get('/', (req, res) => {
   res.send('OK')
 })
 app.get('/test', (req, res) => {
-  res.send({test: req.query.name})
+  const data = {name: req.query.name}
+  console.log(data)
+  res.send(data)
 })
 app.get('/print', (req, res) => {
   console.log('Prepare')
