@@ -58,6 +58,11 @@ fitty('.name > div', {
   multiLine: true,
   maxSize: 160
 });
+setInterval(() => {
+  document.querySelectorAll('.name div').forEach(i => {
+    i.style.display = ''
+  })
+}, 50)
 </script>
 </body>
 </html>
