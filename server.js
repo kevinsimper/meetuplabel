@@ -1,7 +1,7 @@
 const express = require('express')
 const { execSync, exec } = require('child_process')
 let app = express()
-app.use(express.static('.'))
+app.use(express.static('./label'))
 app.use(require('cors')())
 
 app.get('/', (req, res) => {
