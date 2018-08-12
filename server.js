@@ -3,14 +3,17 @@ const { execSync, exec } = require('child_process')
 let app = express()
 app.use(express.static('.'))
 app.use(require('cors')())
+
 app.get('/', (req, res) => {
   res.send('OK')
 })
+
 app.get('/test', (req, res) => {
   const data = {name: req.query.name}
   console.log(data)
   res.send(data)
 })
+
 app.get('/print', (req, res) => {
   console.log('Prepare')
   execSync(`node prepare.js "${req.query.name}"`)
@@ -31,6 +34,8 @@ app.get('/print', (req, res) => {
     res.send('Done')
   }, 2000)
 })
-app.listen(9000, () => {
-  console.log('Listening..')
+
+const PORT = process.env.PORT || 9000
+app.listen(PORT, () => {
+  console.log(`Listening on http://localhost:${PORT}`)
 })
