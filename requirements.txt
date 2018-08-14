@@ -1,0 +1,6 @@
+brother-ql==0.9.1
+click==6.7
+future==0.16.0
+packbits==0.6
+Pillow==5.2.0
+pyusb==1.0.2
