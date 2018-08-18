@@ -1,6 +1,9 @@
 {
   "name": "meetuplabel",
   "version": "0.1.0",
+  "reason": {
+    "react-jsx": 2
+  },
   "sources": {
     "dir" : "src",
     "subdirs" : true
