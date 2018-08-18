@@ -5,6 +5,7 @@ const puppeteer = require('puppeteer');
   const page = await browser.newPage();
   await page.goto('http://localhost:9000/label.html');
   await page.setViewport({width: 945, height: 732})
-  await page.screenshot({path: 'label.png'});
+  await page.waitFor(500)
+  await page.screenshot({path: 'output/label.png'});
   await browser.close();
 })();
