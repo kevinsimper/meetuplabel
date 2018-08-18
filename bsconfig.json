@@ -10,7 +10,10 @@
     "in-source": true
   },
   "suffix": ".bs.js",
-  "bs-dependencies": [],
+  "bs-dependencies": [
+    "reason-react",
+    "@glennsl/bs-json"
+  ],
   "warnings": {
     "error" : "+101"
   },
