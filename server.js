@@ -3,9 +3,10 @@ const { execSync, exec } = require('child_process')
 let app = express()
 app.use(express.static('./label'))
 app.use(require('cors')())
+let main = require('./src/main.bs')
 
 app.get('/', (req, res) => {
-  res.send('OK')
+  res.send(main.output())
 })
 
 app.get('/test', (req, res) => {
