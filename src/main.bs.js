@@ -45,7 +45,12 @@ function make(students, _) {
           /* willUpdate */component[/* willUpdate */7],
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function () {
-              return React.createElement("div", undefined, React.createElement("h1", undefined, "Nametags"), React.createElement("h2", undefined, "Class 04"), React.createElement("div", undefined, renderStudents(students[/* class04 */0])), React.createElement("h2", undefined, "Class 05"), React.createElement("div", undefined, renderStudents(students[/* class05 */1])), React.createElement("h2", undefined, "Class 06"), React.createElement("div", undefined, renderStudents(students[/* class06 */2])));
+              return React.createElement("div", undefined, React.createElement("h1", undefined, "Nametags"), React.createElement("h2", undefined, "Class 04"), React.createElement("div", undefined, renderStudents(students[/* class04 */0])), React.createElement("h2", undefined, "Class 05"), React.createElement("div", undefined, renderStudents(students[/* class05 */1])), React.createElement("h2", undefined, "Class 06"), React.createElement("div", undefined, renderStudents(students[/* class06 */2])), React.createElement("h2", undefined, "Print custom name"), React.createElement("form", {
+                              action: "/print"
+                            }, React.createElement("input", {
+                                  name: "name",
+                                  type: "text"
+                                }), React.createElement("button", undefined, "Print")));
             }),
           /* initialState */component[/* initialState */10],
           /* retainedProps */component[/* retainedProps */11],

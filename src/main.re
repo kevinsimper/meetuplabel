@@ -41,6 +41,11 @@ let make = (~students, _children) => {
       <div> {renderStudents(students.class05)} </div>
       <h2> {ReasonReact.string("Class 06")} </h2>
       <div> {renderStudents(students.class06)} </div>
+      <h2> {ReasonReact.string("Print custom name")} </h2>
+      <form action="/print">
+        <input type_="text" name="name" />
+        <button> {ReasonReact.string("Print")} </button>
+      </form>
     </div>,
 };
 
