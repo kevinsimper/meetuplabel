@@ -27,10 +27,7 @@ var Decode = /* module */[/* classes */classes];
 
 function renderStudents(students) {
   return $$Array.map((function (name) {
-                return React.createElement("div", undefined, name, React.createElement("a", {
-                                className: "print",
-                                href: "/print?name=" + name
-                              }, "Print"));
+                return React.createElement("div", undefined, name);
               }), students);
 }
 
