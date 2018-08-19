@@ -1,1 +1,1 @@
-require('qrcode').toFile('./label/qr.png', process.argv[2])
+require('qrcode').toFile('./label/qr.svg', process.argv[2])
