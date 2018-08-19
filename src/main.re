@@ -16,7 +16,16 @@ module Decode = {
 
 let renderStudents = students =>
   ReasonReact.array(
-    Array.map(name => <div> {ReasonReact.string(name)} </div>, students),
+    Array.map(
+      name =>
+        <div>
+          {ReasonReact.string(name)}
+          <a href={"/print?name=" ++ name} className="print">
+            {ReasonReact.string("Print")}
+          </a>
+        </div>,
+      students,
+    ),
   );
 
 let component = ReasonReact.statelessComponent("App");
