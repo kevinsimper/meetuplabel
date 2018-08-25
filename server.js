@@ -9,6 +9,10 @@ app.get('/', (req, res) => {
   res.send(main.output())
 })
 
+app.get('/config', (req, res) => {
+  res.send('config')
+})
+
 app.get('/test', (req, res) => {
   const data = {name: req.query.name}
   console.log(data)
