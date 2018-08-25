@@ -19,6 +19,12 @@ function classes(json) {
                 }), json),
           /* class06 */Json_decode.field("class06", (function (param) {
                   return Json_decode.array(Json_decode.string, param);
+                }), json),
+          /* class07 */Json_decode.field("class07", (function (param) {
+                  return Json_decode.array(Json_decode.string, param);
+                }), json),
+          /* mentors */Json_decode.field("mentors", (function (param) {
+                  return Json_decode.array(Json_decode.string, param);
                 }), json)
         ];
 }
@@ -26,9 +32,12 @@ function classes(json) {
 var Decode = /* module */[/* classes */classes];
 
 function renderStudents(students) {
-  return $$Array.map((function (name) {
-                return React.createElement("div", undefined, name);
-              }), students);
+  return React.createElement("table", undefined, React.createElement("tbody", undefined, $$Array.map((function (name) {
+                        return React.createElement("tr", undefined, React.createElement("td", undefined, name), React.createElement("td", undefined, React.createElement("a", {
+                                            className: "print",
+                                            href: "/print?name=" + name
+                                          }, "Print")));
+                      }), students)));
 }
 
 var component = ReasonReact.statelessComponent("App");
@@ -45,7 +54,7 @@ function make(students, _) {
           /* willUpdate */component[/* willUpdate */7],
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function () {
-              return React.createElement("div", undefined, React.createElement("h1", undefined, "Nametags"), React.createElement("h2", undefined, "Class 04"), React.createElement("div", undefined, renderStudents(students[/* class04 */0])), React.createElement("h2", undefined, "Class 05"), React.createElement("div", undefined, renderStudents(students[/* class05 */1])), React.createElement("h2", undefined, "Class 06"), React.createElement("div", undefined, renderStudents(students[/* class06 */2])), React.createElement("h2", undefined, "Print custom name"), React.createElement("form", {
+              return React.createElement("div", undefined, React.createElement("h1", undefined, "Nametags"), React.createElement("h2", undefined, "Class 04"), React.createElement("div", undefined, renderStudents(students[/* class04 */0])), React.createElement("h2", undefined, "Class 05"), React.createElement("div", undefined, renderStudents(students[/* class05 */1])), React.createElement("h2", undefined, "Class 06"), React.createElement("div", undefined, renderStudents(students[/* class06 */2])), React.createElement("h2", undefined, "Class 07"), React.createElement("div", undefined, renderStudents(students[/* class07 */3])), React.createElement("h2", undefined, "Mentors"), React.createElement("div", undefined, renderStudents(students[/* mentors */4])), React.createElement("h2", undefined, "Print custom name"), React.createElement("form", {
                               action: "/print"
                             }, React.createElement("input", {
                                   name: "name",

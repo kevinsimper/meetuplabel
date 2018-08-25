@@ -3,6 +3,8 @@ type classes = {
   class04: array(string),
   class05: array(string),
   class06: array(string),
+  class07: array(string),
+  mentors: array(string),
 };
 
 module Decode = {
@@ -11,22 +13,32 @@ module Decode = {
       class04: json |> field("class04", array(string)),
       class05: json |> field("class05", array(string)),
       class06: json |> field("class06", array(string)),
+      class07: json |> field("class07", array(string)),
+      mentors: json |> field("mentors", array(string)),
     };
 };
 
 let renderStudents = students =>
-  ReasonReact.array(
-    Array.map(
-      name =>
-        <div>
-          {ReasonReact.string(name)}
-          <a href={"/print?name=" ++ name} className="print">
-            {ReasonReact.string("Print")}
-          </a>
-        </div>,
-      students,
-    ),
-  );
+  <table>
+    <tbody>
+      {
+        ReasonReact.array(
+          Array.map(
+            name =>
+              <tr>
+                <td> {ReasonReact.string(name)} </td>
+                <td>
+                  <a href={"/print?name=" ++ name} className="print">
+                    {ReasonReact.string("Print")}
+                  </a>
+                </td>
+              </tr>,
+            students,
+          ),
+        )
+      }
+    </tbody>
+  </table>;
 
 let component = ReasonReact.statelessComponent("App");
 
@@ -41,6 +53,10 @@ let make = (~students, _children) => {
       <div> {renderStudents(students.class05)} </div>
       <h2> {ReasonReact.string("Class 06")} </h2>
       <div> {renderStudents(students.class06)} </div>
+      <h2> {ReasonReact.string("Class 07")} </h2>
+      <div> {renderStudents(students.class07)} </div>
+      <h2> {ReasonReact.string("Mentors")} </h2>
+      <div> {renderStudents(students.mentors)} </div>
       <h2> {ReasonReact.string("Print custom name")} </h2>
       <form action="/print">
         <input type_="text" name="name" />
