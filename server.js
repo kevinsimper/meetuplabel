@@ -4,13 +4,14 @@ let app = express()
 app.use(express.static('./label'))
 app.use(require('cors')())
 let main = require('./src/main.bs')
+let ConfigPage = require('./src/ConfigPage.bs')
 
 app.get('/', (req, res) => {
   res.send(main.output())
 })
 
 app.get('/config', (req, res) => {
-  res.send('config')
+  res.send(ConfigPage.render())
 })
 
 app.get('/test', (req, res) => {
