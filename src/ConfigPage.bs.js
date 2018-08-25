@@ -2,6 +2,7 @@
 'use strict';
 
 var React = require("react");
+var Layout = require("./Layout.bs.js");
 var ReasonReact = require("reason-react/src/ReasonReact.js");
 var Server = require("react-dom/server");
 
@@ -19,7 +20,7 @@ function make() {
           /* willUpdate */component[/* willUpdate */7],
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function () {
-              return React.createElement("div", undefined, "Config");
+              return React.createElement("div", undefined, ReasonReact.element(undefined, undefined, Layout.make(/* array */[React.createElement("h2", undefined, "Config")])));
             }),
           /* initialState */component[/* initialState */10],
           /* retainedProps */component[/* retainedProps */11],
