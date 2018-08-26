@@ -19,16 +19,21 @@ module Decode = {
 };
 
 let renderStudents = students =>
-  <table>
+  <table
+    className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
     <tbody>
       {
         ReasonReact.array(
           Array.map(
             name =>
               <tr>
-                <td> {ReasonReact.string(name)} </td>
+                <td className="mdl-data-table__cell--non-numeric">
+                  {ReasonReact.string(name)}
+                </td>
                 <td>
-                  <a href={"/print?name=" ++ name} className="print">
+                  <a
+                    href={"/print?name=" ++ name}
+                    className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
                     {ReasonReact.string("Print")}
                   </a>
                 </td>
@@ -46,7 +51,6 @@ let make = (~students, _children) => {
   ...component,
   render: self =>
     <Layout>
-      <h1> {ReasonReact.string("Nametags")} </h1>
       <h2> {ReasonReact.string("Class 04")} </h2>
       <div> {renderStudents(students.class04)} </div>
       <h2> {ReasonReact.string("Class 05")} </h2>
@@ -59,8 +63,18 @@ let make = (~students, _children) => {
       <div> {renderStudents(students.mentors)} </div>
       <h2> {ReasonReact.string("Print custom name")} </h2>
       <form action="/print">
-        <input type_="text" name="name" />
-        <button> {ReasonReact.string("Print")} </button>
+        <div
+          className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input className="mdl-textfield__input" type_="text" name="name" />
+          <label className="mdl-textfield__label" htmlFor="name">
+            {ReasonReact.string("Name")}
+          </label>
+        </div>
+        <button
+          className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+          type_="submit">
+          {ReasonReact.string("Print")}
+        </button>
       </form>
     </Layout>,
 };

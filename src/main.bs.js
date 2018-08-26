@@ -33,9 +33,13 @@ function classes(json) {
 var Decode = /* module */[/* classes */classes];
 
 function renderStudents(students) {
-  return React.createElement("table", undefined, React.createElement("tbody", undefined, $$Array.map((function (name) {
-                        return React.createElement("tr", undefined, React.createElement("td", undefined, name), React.createElement("td", undefined, React.createElement("a", {
-                                            className: "print",
+  return React.createElement("table", {
+              className: "mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp"
+            }, React.createElement("tbody", undefined, $$Array.map((function (name) {
+                        return React.createElement("tr", undefined, React.createElement("td", {
+                                        className: "mdl-data-table__cell--non-numeric"
+                                      }, name), React.createElement("td", undefined, React.createElement("a", {
+                                            className: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored",
                                             href: "/print?name=" + name
                                           }, "Print")));
                       }), students)));
@@ -56,7 +60,6 @@ function make(students, _) {
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function () {
               return ReasonReact.element(undefined, undefined, Layout.make(/* array */[
-                              React.createElement("h1", undefined, "Nametags"),
                               React.createElement("h2", undefined, "Class 04"),
                               React.createElement("div", undefined, renderStudents(students[/* class04 */0])),
                               React.createElement("h2", undefined, "Class 05"),
@@ -70,10 +73,19 @@ function make(students, _) {
                               React.createElement("h2", undefined, "Print custom name"),
                               React.createElement("form", {
                                     action: "/print"
-                                  }, React.createElement("input", {
-                                        name: "name",
-                                        type: "text"
-                                      }), React.createElement("button", undefined, "Print"))
+                                  }, React.createElement("div", {
+                                        className: "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+                                      }, React.createElement("input", {
+                                            className: "mdl-textfield__input",
+                                            name: "name",
+                                            type: "text"
+                                          }), React.createElement("label", {
+                                            className: "mdl-textfield__label",
+                                            htmlFor: "name"
+                                          }, "Name")), React.createElement("button", {
+                                        className: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored",
+                                        type: "submit"
+                                      }, "Print"))
                             ]));
             }),
           /* initialState */component[/* initialState */10],
