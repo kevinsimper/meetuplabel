@@ -49,7 +49,7 @@ app.get('/print', (req, res) => {
     console.log('Done')
 
     let config = loadConfig()
-    let file = `.data/${config.event}.json`
+    let file = `./data/${config.event}.json`
     let students = []
     try {
       students = JSON.parse(readFileSync(file))
