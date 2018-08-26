@@ -6,7 +6,9 @@ let make = (~event, _children) => {
     <div>
       <Layout>
         <h2> {ReasonReact.string("Config")} </h2>
-        <form action="/config/save">
+        <form
+          action="/config/save"
+          className="mdl-color--white mdl-shadow--2dp mdl-grid">
           <div
             className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input

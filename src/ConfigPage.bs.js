@@ -23,6 +23,7 @@ function make($$event, _) {
               return React.createElement("div", undefined, ReasonReact.element(undefined, undefined, Layout.make(/* array */[
                                   React.createElement("h2", undefined, "Config"),
                                   React.createElement("form", {
+                                        className: "mdl-color--white mdl-shadow--2dp mdl-grid",
                                         action: "/config/save"
                                       }, React.createElement("div", {
                                             className: "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
