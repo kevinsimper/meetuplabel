@@ -20,7 +20,7 @@ module Decode = {
     };
 };
 
-let renderStudents = students =>
+let renderStudents = (type_, students) =>
   <table
     className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
     <tbody>
@@ -36,7 +36,7 @@ let renderStudents = students =>
                 </td>
                 <td>
                   <a
-                    href={"/print?name=" ++ name}
+                    href={"/print?name=" ++ name ++ "&type=" ++ type_}
                     className="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
                     {ReasonReact.string("Print")}
                   </a>
@@ -56,17 +56,17 @@ let make = (~students, _children) => {
   render: self =>
     <Layout>
       <h2> {ReasonReact.string("Class 04")} </h2>
-      <div> {renderStudents(students.class04)} </div>
+      <div> {renderStudents("Class 04", students.class04)} </div>
       <h2> {ReasonReact.string("Class 05")} </h2>
-      <div> {renderStudents(students.class05)} </div>
+      <div> {renderStudents("Class 05", students.class05)} </div>
       <h2> {ReasonReact.string("Class 06")} </h2>
-      <div> {renderStudents(students.class06)} </div>
+      <div> {renderStudents("Class 06", students.class06)} </div>
       <h2> {ReasonReact.string("Class 07")} </h2>
-      <div> {renderStudents(students.class07)} </div>
+      <div> {renderStudents("Class 07", students.class07)} </div>
       <h2> {ReasonReact.string("Mentors")} </h2>
-      <div> {renderStudents(students.mentors)} </div>
-      <h2> {ReasonReact.string("Operations")} </h2>
-      <div> {renderStudents(students.operations)} </div>
+      <div> {renderStudents("Mentor", students.mentors)} </div>
+      <h2> {ReasonReact.string("Core")} </h2>
+      <div> {renderStudents("Core", students.operations)} </div>
       <h2> {ReasonReact.string("Print custom name")} </h2>
       <form
         action="/print"
@@ -76,6 +76,13 @@ let make = (~students, _children) => {
           <input className="mdl-textfield__input" type_="text" name="name" />
           <label className="mdl-textfield__label" htmlFor="name">
             {ReasonReact.string("Name")}
+          </label>
+        </div>
+        <div
+          className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input className="mdl-textfield__input" type_="text" name="type" />
+          <label className="mdl-textfield__label" htmlFor="type">
+            {ReasonReact.string("Type")}
           </label>
         </div>
         <button
