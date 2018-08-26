@@ -1,4 +1,5 @@
 const express = require('express')
+const { readFileSync, writeFileSync } = require('fs')
 const { execSync, exec } = require('child_process')
 let app = express()
 app.use(express.static('./label'))
@@ -11,7 +12,13 @@ app.get('/', (req, res) => {
 })
 
 app.get('/config', (req, res) => {
-  res.send(ConfigPage.render())
+  let config = JSON.parse(readFileSync('./config.json'))
+  res.send('<!DOCTYPE html>' + ConfigPage.render(config))
+})
+
+app.get('/config/save', (req, res) => {
+  writeFileSync('./config.json', JSON.stringify(req.query, null, 2))
+  res.redirect('/config')
 })
 
 app.get('/test', (req, res) => {

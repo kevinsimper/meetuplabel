@@ -1,18 +1,19 @@
 let component = ReasonReact.statelessComponent("ConfigPage");
 
-let make = _children => {
+let make = (~event, _children) => {
   ...component,
   render: self =>
     <div>
       <Layout>
         <h2> {ReasonReact.string("Config")} </h2>
-        <form>
+        <form action="/config/save">
           <div
             className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input
               className="mdl-textfield__input"
               type_="text"
               name="event"
+              value=event
             />
             <label className="mdl-textfield__label" htmlFor="event">
               {ReasonReact.string("Event Name")}
@@ -30,5 +31,9 @@ let make = _children => {
     </div>,
 };
 
-let render = () =>
-  ReactDOMServerRe.renderToString(ReasonReact.element(make([||])));
+type config = {. event: string};
+
+let render = config =>
+  ReactDOMServerRe.renderToString(
+    ReasonReact.element(make(~event=config##event, [||])),
+  );

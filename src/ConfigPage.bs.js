@@ -8,7 +8,7 @@ var Server = require("react-dom/server");
 
 var component = ReasonReact.statelessComponent("ConfigPage");
 
-function make() {
+function make($$event, _) {
   return /* record */[
           /* debugName */component[/* debugName */0],
           /* reactClassInternal */component[/* reactClassInternal */1],
@@ -22,12 +22,15 @@ function make() {
           /* render */(function () {
               return React.createElement("div", undefined, ReasonReact.element(undefined, undefined, Layout.make(/* array */[
                                   React.createElement("h2", undefined, "Config"),
-                                  React.createElement("form", undefined, React.createElement("div", {
+                                  React.createElement("form", {
+                                        action: "/config/save"
+                                      }, React.createElement("div", {
                                             className: "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
                                           }, React.createElement("input", {
                                                 className: "mdl-textfield__input",
                                                 name: "event",
-                                                type: "text"
+                                                type: "text",
+                                                value: $$event
                                               }), React.createElement("label", {
                                                 className: "mdl-textfield__label",
                                                 htmlFor: "event"
@@ -44,8 +47,8 @@ function make() {
         ];
 }
 
-function render() {
-  return Server.renderToString(ReasonReact.element(undefined, undefined, make(/* array */[])));
+function render(config) {
+  return Server.renderToString(ReasonReact.element(undefined, undefined, make(config.event, /* array */[])));
 }
 
 exports.component = component;
