@@ -20,7 +20,22 @@ function make() {
           /* willUpdate */component[/* willUpdate */7],
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function () {
-              return React.createElement("div", undefined, ReasonReact.element(undefined, undefined, Layout.make(/* array */[React.createElement("h2", undefined, "Config")])));
+              return React.createElement("div", undefined, ReasonReact.element(undefined, undefined, Layout.make(/* array */[
+                                  React.createElement("h2", undefined, "Config"),
+                                  React.createElement("form", undefined, React.createElement("div", {
+                                            className: "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+                                          }, React.createElement("input", {
+                                                className: "mdl-textfield__input",
+                                                name: "event",
+                                                type: "text"
+                                              }), React.createElement("label", {
+                                                className: "mdl-textfield__label",
+                                                htmlFor: "event"
+                                              }, "Event Name")), React.createElement("div", undefined, React.createElement("button", {
+                                                className: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored",
+                                                type: "submit"
+                                              }, "Save")))
+                                ])));
             }),
           /* initialState */component[/* initialState */10],
           /* retainedProps */component[/* retainedProps */11],
