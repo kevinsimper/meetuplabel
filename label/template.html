@@ -24,7 +24,7 @@
   }
   .name {
     grid-area: name;
-    width: 800px;
+    width: 860px;
     font-size: 120px;
     text-align: center;
   }
@@ -51,17 +51,21 @@
 <body>
 <div class="label">
   <div class="name">
-    <div>##FIRSTNAME##</div>
-    <div>##LASTNAME##</div>
+    <div class="namefirst">##FIRSTNAME##</div>
+    <div class="namesecond">##TYPE##</div>
   </div>
   <div class="logo"><img src="hackyourfuture.png"/></div>
   <div class="qr"><img src="qr.svg"/></div>
 </div>
 <script src="fitty.min.js"></script>
 <script>
-fitty('.name > div', {
+fitty('.namefirst', {
   multiLine: true,
-  maxSize: 290
+  maxSize: 200
+});
+fitty('.namesecond', {
+  multiLine: true,
+  maxSize: 150
 });
 setInterval(() => {
   document.querySelectorAll('.name div').forEach(i => {
