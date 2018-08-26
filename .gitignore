@@ -5,5 +5,6 @@ old
 lib
 .merlin
 .bsb.lock
-label/qr.png
+label/qr.svg
 output
+config.json
