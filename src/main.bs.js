@@ -38,7 +38,11 @@ function renderStudents(students) {
             }, React.createElement("tbody", undefined, $$Array.map((function (name) {
                         return React.createElement("tr", undefined, React.createElement("td", {
                                         className: "mdl-data-table__cell--non-numeric"
-                                      }, name), React.createElement("td", undefined, React.createElement("a", {
+                                      }, React.createElement("h4", {
+                                            style: {
+                                              margin: "0px"
+                                            }
+                                          }, name)), React.createElement("td", undefined, React.createElement("a", {
                                             className: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored",
                                             href: "/print?name=" + name
                                           }, "Print")));
@@ -72,6 +76,7 @@ function make(students, _) {
                               React.createElement("div", undefined, renderStudents(students[/* mentors */4])),
                               React.createElement("h2", undefined, "Print custom name"),
                               React.createElement("form", {
+                                    className: "mdl-color--white mdl-shadow--2dp mdl-grid  ",
                                     action: "/print"
                                   }, React.createElement("div", {
                                         className: "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"

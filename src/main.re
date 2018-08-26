@@ -28,7 +28,9 @@ let renderStudents = students =>
             name =>
               <tr>
                 <td className="mdl-data-table__cell--non-numeric">
-                  {ReasonReact.string(name)}
+                  <h4 style={ReactDOMRe.Style.make(~margin="0px", ())}>
+                    {ReasonReact.string(name)}
+                  </h4>
                 </td>
                 <td>
                   <a
@@ -62,7 +64,9 @@ let make = (~students, _children) => {
       <h2> {ReasonReact.string("Mentors")} </h2>
       <div> {renderStudents(students.mentors)} </div>
       <h2> {ReasonReact.string("Print custom name")} </h2>
-      <form action="/print">
+      <form
+        action="/print"
+        className="mdl-color--white mdl-shadow--2dp mdl-grid  ">
         <div
           className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
           <input className="mdl-textfield__input" type_="text" name="name" />
