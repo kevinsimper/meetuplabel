@@ -13,14 +13,18 @@
     display: grid;
     align-items: center;
     justify-items: center;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "name name"
+    "logo qr";
     width: 945px;
     height: 732px;
     /* border: 1px solid #CCC; */
   }
   .name {
-    width: 600px;
+    grid-area: name;
+    width: 860px;
     font-size: 120px;
     text-align: center;
   }
@@ -30,8 +34,10 @@
     line-height: 65px;
   }
   .logo {
+    grid-area: logo;
   }
   .qr {
+    grid-area: qr;
     width: 300px;
   }
   .qr img {
@@ -44,19 +50,22 @@
 </head>
 <body>
 <div class="label">
-  <div class="logo"><img src="docker.png"/></div>
   <div class="name">
-    <div>##FIRSTNAME##</div>
-    <div>##LASTNAME##</div>
+    <div class="namefirst">##FIRSTNAME##</div>
+    <div class="namesecond">##TYPE##</div>
   </div>
-  <div class="event">Docker<br/>Copenhagen<br/>19th June</div>
-  <div class="qr"><img src="qr.png"/></div>
+  <div class="logo"><img src="hackyourfuture.png"/></div>
+  <div class="qr"><img src="qr.svg"/></div>
 </div>
 <script src="fitty.min.js"></script>
 <script>
-fitty('.name > div', {
+fitty('.namefirst', {
   multiLine: true,
-  maxSize: 160
+  maxSize: 200
+});
+fitty('.namesecond', {
+  multiLine: true,
+  maxSize: 150
 });
 setInterval(() => {
   document.querySelectorAll('.name div').forEach(i => {
