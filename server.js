@@ -32,7 +32,7 @@ app.get('/test', (req, res) => {
 
 app.get('/print', (req, res) => {
   console.log('Prepare')
-  execSync(`node prepare.js "${req.query.name}"`)
+  execSync(`node prepare.js "${req.query.name}" "${req.query.type}"`)
   console.log('Browser')
   try {
     exec('node browser.js', {
