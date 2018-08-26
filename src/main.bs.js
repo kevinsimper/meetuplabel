@@ -26,6 +26,9 @@ function classes(json) {
                 }), json),
           /* mentors */Json_decode.field("mentors", (function (param) {
                   return Json_decode.array(Json_decode.string, param);
+                }), json),
+          /* operations */Json_decode.field("operations", (function (param) {
+                  return Json_decode.array(Json_decode.string, param);
                 }), json)
         ];
 }
@@ -74,6 +77,8 @@ function make(students, _) {
                               React.createElement("div", undefined, renderStudents(students[/* class07 */3])),
                               React.createElement("h2", undefined, "Mentors"),
                               React.createElement("div", undefined, renderStudents(students[/* mentors */4])),
+                              React.createElement("h2", undefined, "Operations"),
+                              React.createElement("div", undefined, renderStudents(students[/* operations */5])),
                               React.createElement("h2", undefined, "Print custom name"),
                               React.createElement("form", {
                                     className: "mdl-color--white mdl-shadow--2dp mdl-grid  ",

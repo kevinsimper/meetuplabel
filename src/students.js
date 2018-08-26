@@ -74,6 +74,10 @@ module.exports = `{
     "Svetlana Galkina",
     "Younes Meliani",
     "Zaki Wasik"
+  ],
+  "operations": [
+    "Christopher",
+    "Marie"
   ]
 }
 

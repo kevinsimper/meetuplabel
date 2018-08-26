@@ -5,6 +5,7 @@ type classes = {
   class06: array(string),
   class07: array(string),
   mentors: array(string),
+  operations: array(string),
 };
 
 module Decode = {
@@ -15,6 +16,7 @@ module Decode = {
       class06: json |> field("class06", array(string)),
       class07: json |> field("class07", array(string)),
       mentors: json |> field("mentors", array(string)),
+      operations: json |> field("operations", array(string)),
     };
 };
 
@@ -63,6 +65,8 @@ let make = (~students, _children) => {
       <div> {renderStudents(students.class07)} </div>
       <h2> {ReasonReact.string("Mentors")} </h2>
       <div> {renderStudents(students.mentors)} </div>
+      <h2> {ReasonReact.string("Operations")} </h2>
+      <div> {renderStudents(students.operations)} </div>
       <h2> {ReasonReact.string("Print custom name")} </h2>
       <form
         action="/print"
