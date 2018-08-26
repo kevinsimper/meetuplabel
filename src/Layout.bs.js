@@ -60,7 +60,6 @@ function make(children) {
                                             padding: "8px"
                                           }
                                         }, ReactDOMRe.createElementVariadic("div", {
-                                              className: "mdl-color--white mdl-shadow--2dp",
                                               style: {
                                                 padding: "20px"
                                               }

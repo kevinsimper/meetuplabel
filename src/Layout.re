@@ -58,9 +58,7 @@ let make = children => {
             <div
               className="page-content"
               style={ReactDOMRe.Style.make(~padding="8px", ())}>
-              <div
-                className="mdl-color--white mdl-shadow--2dp"
-                style={ReactDOMRe.Style.make(~padding="20px", ())}>
+              <div style={ReactDOMRe.Style.make(~padding="20px", ())}>
                 ...children
               </div>
             </div>
