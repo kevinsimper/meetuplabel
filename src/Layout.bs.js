@@ -68,7 +68,7 @@ function make(children) {
                                   href: "https://fonts.googleapis.com/icon?family=Material+Icons",
                                   rel: "stylesheet"
                                 }), React.createElement("link", {
-                                  href: "https://code.getmdl.io/1.3.0/material.indigo-pink.min.css",
+                                  href: "https://code.getmdl.io/1.3.0/material.blue-pink.min.css",
                                   rel: "stylesheet"
                                 }), React.createElement("script", {
                                   src: "https://code.getmdl.io/1.3.0/material.min.js"

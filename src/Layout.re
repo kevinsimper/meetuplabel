@@ -72,7 +72,7 @@ let make = children => {
         />
         <link
           rel="stylesheet"
-          href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"
+          href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css"
         />
         <script src="https://code.getmdl.io/1.3.0/material.min.js" />
       </body>
