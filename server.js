@@ -8,7 +8,7 @@ let main = require('./src/main.bs')
 let ConfigPage = require('./src/ConfigPage.bs')
 
 app.get('/', (req, res) => {
-  res.send(main.output())
+  res.send('<!DOCTYPE html>' + main.output())
 })
 
 app.get('/config', (req, res) => {
