@@ -1,5 +1,5 @@
 const express = require('express')
-const { readFileSync, writeFileSync } = require('fs')
+const { readFileSync, writeFileSync, appendFile } = require('fs')
 const { execSync, exec } = require('child_process')
 let app = express()
 app.use(express.static('./label'))
@@ -11,13 +11,16 @@ app.get('/', (req, res) => {
   res.send('<!DOCTYPE html>' + main.output())
 })
 
+let loadConfig = () =>  JSON.parse(readFileSync('./config.json'))
+let saveConfig = data => writeFileSync('./config.json', JSON.stringify(data, null, 2))
+
 app.get('/config', (req, res) => {
-  let config = JSON.parse(readFileSync('./config.json'))
+  let config = loadConfig()
   res.send('<!DOCTYPE html>' + ConfigPage.render(config))
 })
 
 app.get('/config/save', (req, res) => {
-  writeFileSync('./config.json', JSON.stringify(req.query, null, 2))
+  saveConfig(req.query)
   res.redirect('/config')
 })
 
@@ -44,7 +47,19 @@ app.get('/print', (req, res) => {
     console.log('Print')
     execSync('bash print.sh')
     console.log('Done')
-    res.send('Done')
+
+    let config = loadConfig()
+    let file = `.data/${config.event}.json`
+    let students = []
+    try {
+      students = JSON.parse(readFileSync(file))
+    } catch(e) {
+      console.log(e)
+    }
+    students.push([req.query.name, new Date().toISOString()])
+    writeFileSync(file, JSON.stringify(students, null, 2))
+
+    res.redirect('/')
   }, 2000)
 })
 
