@@ -3,5 +3,7 @@ label.html
 env
 old
 lib
+.merlin
+.bsb.lock
 label/qr.png
 output
