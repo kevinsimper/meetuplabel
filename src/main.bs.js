@@ -4,6 +4,7 @@
 var Json = require("@glennsl/bs-json/src/Json.bs.js");
 var $$Array = require("bs-platform/lib/js/array.js");
 var React = require("react");
+var Layout = require("./Layout.bs.js");
 var Students = require("./students");
 var Json_decode = require("@glennsl/bs-json/src/Json_decode.bs.js");
 var ReasonReact = require("reason-react/src/ReasonReact.js");
@@ -54,12 +55,26 @@ function make(students, _) {
           /* willUpdate */component[/* willUpdate */7],
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function () {
-              return React.createElement("div", undefined, React.createElement("h1", undefined, "Nametags"), React.createElement("h2", undefined, "Class 04"), React.createElement("div", undefined, renderStudents(students[/* class04 */0])), React.createElement("h2", undefined, "Class 05"), React.createElement("div", undefined, renderStudents(students[/* class05 */1])), React.createElement("h2", undefined, "Class 06"), React.createElement("div", undefined, renderStudents(students[/* class06 */2])), React.createElement("h2", undefined, "Class 07"), React.createElement("div", undefined, renderStudents(students[/* class07 */3])), React.createElement("h2", undefined, "Mentors"), React.createElement("div", undefined, renderStudents(students[/* mentors */4])), React.createElement("h2", undefined, "Print custom name"), React.createElement("form", {
-                              action: "/print"
-                            }, React.createElement("input", {
-                                  name: "name",
-                                  type: "text"
-                                }), React.createElement("button", undefined, "Print")));
+              return ReasonReact.element(undefined, undefined, Layout.make(/* array */[
+                              React.createElement("h1", undefined, "Nametags"),
+                              React.createElement("h2", undefined, "Class 04"),
+                              React.createElement("div", undefined, renderStudents(students[/* class04 */0])),
+                              React.createElement("h2", undefined, "Class 05"),
+                              React.createElement("div", undefined, renderStudents(students[/* class05 */1])),
+                              React.createElement("h2", undefined, "Class 06"),
+                              React.createElement("div", undefined, renderStudents(students[/* class06 */2])),
+                              React.createElement("h2", undefined, "Class 07"),
+                              React.createElement("div", undefined, renderStudents(students[/* class07 */3])),
+                              React.createElement("h2", undefined, "Mentors"),
+                              React.createElement("div", undefined, renderStudents(students[/* mentors */4])),
+                              React.createElement("h2", undefined, "Print custom name"),
+                              React.createElement("form", {
+                                    action: "/print"
+                                  }, React.createElement("input", {
+                                        name: "name",
+                                        type: "text"
+                                      }), React.createElement("button", undefined, "Print"))
+                            ]));
             }),
           /* initialState */component[/* initialState */10],
           /* retainedProps */component[/* retainedProps */11],

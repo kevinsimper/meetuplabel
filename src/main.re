@@ -45,7 +45,7 @@ let component = ReasonReact.statelessComponent("App");
 let make = (~students, _children) => {
   ...component,
   render: self =>
-    <div>
+    <Layout>
       <h1> {ReasonReact.string("Nametags")} </h1>
       <h2> {ReasonReact.string("Class 04")} </h2>
       <div> {renderStudents(students.class04)} </div>
@@ -62,7 +62,7 @@ let make = (~students, _children) => {
         <input type_="text" name="name" />
         <button> {ReasonReact.string("Print")} </button>
       </form>
-    </div>,
+    </Layout>,
 };
 
 let output = () => {
