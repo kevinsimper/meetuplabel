@@ -34,7 +34,13 @@ function make(children) {
                                               className: "mdl-layout-spacer"
                                             }), React.createElement("nav", {
                                               className: "mdl-navigation mdl-layout--large-screen-only"
-                                            }))), React.createElement("div", {
+                                            }, React.createElement("a", {
+                                                  className: "mdl-navigation__link",
+                                                  href: "/"
+                                                }, "Frontpage"), React.createElement("a", {
+                                                  className: "mdl-navigation__link",
+                                                  href: "/config"
+                                                }, "Config")))), React.createElement("div", {
                                       className: "mdl-layout__drawer"
                                     }, React.createElement("span", {
                                           className: "mdl-layout-title"
@@ -42,17 +48,11 @@ function make(children) {
                                           className: "mdl-navigation"
                                         }, React.createElement("a", {
                                               className: "mdl-navigation__link",
-                                              href: ""
-                                            }, "Link"), React.createElement("a", {
+                                              href: "/"
+                                            }, "Frontpage"), React.createElement("a", {
                                               className: "mdl-navigation__link",
-                                              href: ""
-                                            }, "Link"), React.createElement("a", {
-                                              className: "mdl-navigation__link",
-                                              href: ""
-                                            }, "Link"), React.createElement("a", {
-                                              className: "mdl-navigation__link",
-                                              href: ""
-                                            }, "Link"))), React.createElement("main", {
+                                              href: "/config"
+                                            }, "Config"))), React.createElement("main", {
                                       className: "mdl-layout__content mdl-color--grey-100"
                                     }, React.createElement("div", {
                                           className: "page-content",

@@ -18,21 +18,14 @@ let make = children => {
                 {ReasonReact.string("NameTags")}
               </span>
               <div className="mdl-layout-spacer" />
-              <nav
-                className="mdl-navigation mdl-layout--large-screen-only"
-                /* <a className="mdl-navigation__link" href="">
-                     {ReasonReact.string("Link")}
-                   </a>
-                   <a className="mdl-navigation__link" href="">
-                     {ReasonReact.string("Link")}
-                   </a>
-                   <a className="mdl-navigation__link" href="">
-                     {ReasonReact.string("Link")}
-                   </a>
-                   <a className="mdl-navigation__link" href="">
-                     {ReasonReact.string("Link")}
-                   </a> */
-              />
+              <nav className="mdl-navigation mdl-layout--large-screen-only">
+                <a className="mdl-navigation__link" href="/">
+                  {ReasonReact.string("Frontpage")}
+                </a>
+                <a className="mdl-navigation__link" href="/config">
+                  {ReasonReact.string("Config")}
+                </a>
+              </nav>
             </div>
           </header>
           <div className="mdl-layout__drawer">
@@ -40,17 +33,11 @@ let make = children => {
               {ReasonReact.string("Title")}
             </span>
             <nav className="mdl-navigation">
-              <a className="mdl-navigation__link" href="">
-                {ReasonReact.string("Link")}
+              <a className="mdl-navigation__link" href="/">
+                {ReasonReact.string("Frontpage")}
               </a>
-              <a className="mdl-navigation__link" href="">
-                {ReasonReact.string("Link")}
-              </a>
-              <a className="mdl-navigation__link" href="">
-                {ReasonReact.string("Link")}
-              </a>
-              <a className="mdl-navigation__link" href="">
-                {ReasonReact.string("Link")}
+              <a className="mdl-navigation__link" href="/config">
+                {ReasonReact.string("Config")}
               </a>
             </nav>
           </div>
