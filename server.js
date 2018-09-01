@@ -1,5 +1,6 @@
 const express = require('express')
 const { readFileSync, writeFileSync, appendFile } = require('fs')
+const { loadConfig, saveConfig } = require('./config')
 const { execSync, exec } = require('child_process')
 let app = express()
 app.use(express.static('./label'))
@@ -10,9 +11,6 @@ let ConfigPage = require('./src/ConfigPage.bs')
 app.get('/', (req, res) => {
   res.send('<!DOCTYPE html>' + main.output())
 })
-
-let loadConfig = () =>  JSON.parse(readFileSync('./config.json'))
-let saveConfig = data => writeFileSync('./config.json', JSON.stringify(data, null, 2))
 
 app.get('/config', (req, res) => {
   let config = loadConfig()
