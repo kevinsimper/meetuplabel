@@ -1,7 +1,12 @@
 const puppeteer = require('puppeteer');
+const { loadConfig } = require('./config')
 
 (async () => {
-  const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+  const { chromebook } = loadConfig()
+  const launchProp = chromebook === "on" ? {
+    {args: ['--no-sandbox', '--disable-setuid-sandbox']}
+  } : {}
+  const browser = await puppeteer.launch(launchProp);
   const page = await browser.newPage();
   await page.goto('http://localhost:9000/label.html');
   await page.setViewport({width: 945, height: 732})
