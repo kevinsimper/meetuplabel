@@ -22,6 +22,14 @@ function make(children) {
               return React.createElement("html", undefined, React.createElement("head", undefined, React.createElement("meta", {
                                   content: "width=device-width, initial-scale=1.0",
                                   name: "viewport"
+                                }), React.createElement("link", {
+                                  href: "https://fonts.googleapis.com/icon?family=Material+Icons",
+                                  rel: "stylesheet"
+                                }), React.createElement("link", {
+                                  href: "https://code.getmdl.io/1.3.0/material.blue-pink.min.css",
+                                  rel: "stylesheet"
+                                }), React.createElement("script", {
+                                  src: "https://code.getmdl.io/1.3.0/material.min.js"
                                 })), React.createElement("body", undefined, React.createElement("div", {
                                   className: "mdl-layout mdl-js-layout mdl-layout--fixed-header"
                                 }, React.createElement("header", {
@@ -63,15 +71,7 @@ function make(children) {
                                               style: {
                                                 padding: "20px"
                                               }
-                                            }, children)))), React.createElement("link", {
-                                  href: "https://fonts.googleapis.com/icon?family=Material+Icons",
-                                  rel: "stylesheet"
-                                }), React.createElement("link", {
-                                  href: "https://code.getmdl.io/1.3.0/material.blue-pink.min.css",
-                                  rel: "stylesheet"
-                                }), React.createElement("script", {
-                                  src: "https://code.getmdl.io/1.3.0/material.min.js"
-                                })));
+                                            }, children))))));
             }),
           /* initialState */component[/* initialState */10],
           /* retainedProps */component[/* retainedProps */11],
