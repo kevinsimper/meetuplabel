@@ -8,7 +8,7 @@ var Server = require("react-dom/server");
 
 var component = ReasonReact.statelessComponent("ConfigPage");
 
-function make($$event, _) {
+function make($$event, chromebook, _) {
   return /* record */[
           /* debugName */component[/* debugName */0],
           /* reactClassInternal */component[/* reactClassInternal */1],
@@ -23,7 +23,10 @@ function make($$event, _) {
               return React.createElement("div", undefined, ReasonReact.element(undefined, undefined, Layout.make(/* array */[
                                   React.createElement("h2", undefined, "Config"),
                                   React.createElement("form", {
-                                        className: "mdl-color--white mdl-shadow--2dp mdl-grid",
+                                        className: "mdl-color--white mdl-shadow--2dp",
+                                        style: {
+                                          padding: "20px"
+                                        },
                                         action: "/config/save"
                                       }, React.createElement("div", {
                                             className: "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
@@ -35,7 +38,18 @@ function make($$event, _) {
                                               }), React.createElement("label", {
                                                 className: "mdl-textfield__label",
                                                 htmlFor: "event"
-                                              }, "Event Name")), React.createElement("div", undefined, React.createElement("button", {
+                                              }, "Event Name")), React.createElement("div", undefined, React.createElement("label", {
+                                                className: "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect",
+                                                htmlFor: "chromebook"
+                                              }, React.createElement("input", {
+                                                    className: "mdl-checkbox__input",
+                                                    id: "chromebook",
+                                                    checked: chromebook,
+                                                    name: "chromebook",
+                                                    type: "checkbox"
+                                                  }), React.createElement("span", {
+                                                    className: "mdl-checkbox__label"
+                                                  }, "Chromebook"))), React.createElement("div", undefined, React.createElement("button", {
                                                 className: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored",
                                                 type: "submit"
                                               }, "Save")))
@@ -49,7 +63,9 @@ function make($$event, _) {
 }
 
 function render(config) {
-  return Server.renderToString(ReasonReact.element(undefined, undefined, make(config.event, /* array */[])));
+  var match = config.chromebook === "on";
+  var chromeProp = match ? true : false;
+  return Server.renderToString(ReasonReact.element(undefined, undefined, make(config.event, chromeProp, /* array */[])));
 }
 
 exports.component = component;
