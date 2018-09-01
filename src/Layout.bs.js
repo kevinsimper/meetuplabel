@@ -31,7 +31,7 @@ function make(children) {
                                 }), React.createElement("script", {
                                   src: "https://code.getmdl.io/1.3.0/material.min.js"
                                 })), React.createElement("body", undefined, React.createElement("div", {
-                                  className: "mdl-layout mdl-js-layout mdl-layout--fixed-header"
+                                  className: "mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer"
                                 }, React.createElement("header", {
                                       className: "mdl-layout__header"
                                     }, React.createElement("div", {
@@ -52,15 +52,30 @@ function make(children) {
                                       className: "mdl-layout__drawer"
                                     }, React.createElement("span", {
                                           className: "mdl-layout-title"
-                                        }, "Title"), React.createElement("nav", {
+                                        }, "Categories"), React.createElement("nav", {
                                           className: "mdl-navigation"
                                         }, React.createElement("a", {
                                               className: "mdl-navigation__link",
-                                              href: "/"
-                                            }, "Frontpage"), React.createElement("a", {
+                                              href: "/#class04"
+                                            }, "Class 04"), React.createElement("a", {
                                               className: "mdl-navigation__link",
-                                              href: "/config"
-                                            }, "Config"))), React.createElement("main", {
+                                              href: "/#class05"
+                                            }, "Class 05"), React.createElement("a", {
+                                              className: "mdl-navigation__link",
+                                              href: "/#class06"
+                                            }, "Class 06"), React.createElement("a", {
+                                              className: "mdl-navigation__link",
+                                              href: "/#class07"
+                                            }, "Class 07"), React.createElement("a", {
+                                              className: "mdl-navigation__link",
+                                              href: "/#mentors"
+                                            }, "Mentors"), React.createElement("a", {
+                                              className: "mdl-navigation__link",
+                                              href: "/#core"
+                                            }, "Core"), React.createElement("a", {
+                                              className: "mdl-navigation__link",
+                                              href: "/#printself"
+                                            }, "Print Self"))), React.createElement("main", {
                                       className: "mdl-layout__content mdl-color--grey-100"
                                     }, React.createElement("div", {
                                           className: "page-content",

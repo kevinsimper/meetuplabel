@@ -55,19 +55,19 @@ let make = (~students, _children) => {
   ...component,
   render: self =>
     <Layout>
-      <h2> {ReasonReact.string("Class 04")} </h2>
+      <h3 id="class04"> {ReasonReact.string("Class 04")} </h3>
       <div> {renderStudents("Class 04", students.class04)} </div>
-      <h2> {ReasonReact.string("Class 05")} </h2>
+      <h3 id="class05"> {ReasonReact.string("Class 05")} </h3>
       <div> {renderStudents("Class 05", students.class05)} </div>
-      <h2> {ReasonReact.string("Class 06")} </h2>
+      <h3 id="class06"> {ReasonReact.string("Class 06")} </h3>
       <div> {renderStudents("Class 06", students.class06)} </div>
-      <h2> {ReasonReact.string("Class 07")} </h2>
+      <h3 id="class07"> {ReasonReact.string("Class 07")} </h3>
       <div> {renderStudents("Class 07", students.class07)} </div>
-      <h2> {ReasonReact.string("Mentors")} </h2>
+      <h3 id="mentors"> {ReasonReact.string("Mentors")} </h3>
       <div> {renderStudents("Mentor", students.mentors)} </div>
-      <h2> {ReasonReact.string("Core")} </h2>
+      <h3 id="core"> {ReasonReact.string("Core")} </h3>
       <div> {renderStudents("Core", students.operations)} </div>
-      <h2> {ReasonReact.string("Print custom name")} </h2>
+      <h2 id="printself"> {ReasonReact.string("Print custom name")} </h2>
       <form
         action="/print"
         className="mdl-color--white mdl-shadow--2dp mdl-grid  ">

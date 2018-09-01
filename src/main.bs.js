@@ -67,19 +67,33 @@ function make(students, _) {
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function () {
               return ReasonReact.element(undefined, undefined, Layout.make(/* array */[
-                              React.createElement("h2", undefined, "Class 04"),
+                              React.createElement("h3", {
+                                    id: "class04"
+                                  }, "Class 04"),
                               React.createElement("div", undefined, renderStudents("Class 04", students[/* class04 */0])),
-                              React.createElement("h2", undefined, "Class 05"),
+                              React.createElement("h3", {
+                                    id: "class05"
+                                  }, "Class 05"),
                               React.createElement("div", undefined, renderStudents("Class 05", students[/* class05 */1])),
-                              React.createElement("h2", undefined, "Class 06"),
+                              React.createElement("h3", {
+                                    id: "class06"
+                                  }, "Class 06"),
                               React.createElement("div", undefined, renderStudents("Class 06", students[/* class06 */2])),
-                              React.createElement("h2", undefined, "Class 07"),
+                              React.createElement("h3", {
+                                    id: "class07"
+                                  }, "Class 07"),
                               React.createElement("div", undefined, renderStudents("Class 07", students[/* class07 */3])),
-                              React.createElement("h2", undefined, "Mentors"),
+                              React.createElement("h3", {
+                                    id: "mentors"
+                                  }, "Mentors"),
                               React.createElement("div", undefined, renderStudents("Mentor", students[/* mentors */4])),
-                              React.createElement("h2", undefined, "Core"),
+                              React.createElement("h3", {
+                                    id: "core"
+                                  }, "Core"),
                               React.createElement("div", undefined, renderStudents("Core", students[/* operations */5])),
-                              React.createElement("h2", undefined, "Print custom name"),
+                              React.createElement("h2", {
+                                    id: "printself"
+                                  }, "Print custom name"),
                               React.createElement("form", {
                                     className: "mdl-color--white mdl-shadow--2dp mdl-grid  ",
                                     action: "/print"
