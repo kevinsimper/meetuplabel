@@ -1,10 +1,10 @@
 const puppeteer = require('puppeteer');
-const { loadConfig } = require('./config')
+const { loadConfig } = require('./config');
 
 (async () => {
   const { chromebook } = loadConfig()
   const launchProp = chromebook === "on" ? {
-    {args: ['--no-sandbox', '--disable-setuid-sandbox']}
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
   } : {}
   const browser = await puppeteer.launch(launchProp);
   const page = await browser.newPage();
