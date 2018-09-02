@@ -13,18 +13,18 @@
     display: grid;
     align-items: center;
     justify-items: center;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
-    "logo name name"
-    "info qr qr";
+    "name name"
+    "logo qr";
     width: 945px;
     height: 732px;
     /* border: 1px solid #CCC; */
   }
   .name {
     grid-area: name;
-    width: 600px;
+    width: 860px;
     font-size: 120px;
     text-align: center;
   }
@@ -50,12 +50,11 @@
 </head>
 <body>
 <div class="label">
-  <div class="logo"><img style="padding: 20px 60px 20px 40px;" src="ethereum.jpg"/></div>
   <div class="name">
     <div class="namefirst">##FIRSTNAME##</div>
-    <div class="namesecond">##LASTNAME##</div>
+    <div class="namesecond">##TYPE##</div>
   </div>
-  <div class="event">Copenhagen<br/>Ethereum<br/>28 Aug.</div>
+  <div class="logo"><img src="hackyourfuture.png"/></div>
   <div class="qr"><img src="qr.svg"/></div>
 </div>
 <script src="fitty.min.js"></script>
