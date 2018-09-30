@@ -7,6 +7,6 @@ test('raster function should be defined', () => {
   const raw = readFileSync('./testdata/label.bin')
   console.log(raw)
   const newdata = raster()
-  console.log(newdata)
-  expect(newdata).toBeDefined()
+  console.log(newdata.length)
+  expect(newdata).toEqual(raw.slice(0, newdata.length))
 })
