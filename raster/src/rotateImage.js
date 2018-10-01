@@ -10,7 +10,7 @@ exports.rotate = data => {
         .flip(false, true)
     })
     .then(image => {
-      return image.write('./testdata/rotated.png', () => {})
+      return image.getBufferAsync('image/png')
     })
     .catch(e => console.log(e))
 }
