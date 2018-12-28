@@ -1,0 +1,17 @@
+{
+  "name": "raster",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^23.6.0",
+    "jimp": "^0.5.3",
+    "pngjs": "^3.3.3"
+  }
+}

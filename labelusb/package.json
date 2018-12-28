@@ -1,0 +1,21 @@
+{
+  "name": "labelusb",
+  "version": "1.0.0",
+  "description": "Allow printing labels with WebUSB which would allow more people to easier print labels.",
+  "main": "convert.js",
+  "dependencies": {
+    "serve": "^10.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "scripts": {
+    "build": "webpack --mode development src/index.js -o dist/index.js",
+    "watch": "webpack --mode development src/index.js -o dist/index.js -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
