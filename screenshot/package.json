@@ -4,15 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "polymer serve",
+    "start": "parcel serve index.html",
     "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "jest": "^23.6.0",
-    "polymer-cli": "^1.9.4"
+    "parcel": "^1.11.0",
+    "regenerator-runtime": "^0.13.1"
   },
   "dependencies": {
     "html2canvas": "^1.0.0-alpha.12"
