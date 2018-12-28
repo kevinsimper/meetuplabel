@@ -4,12 +4,13 @@ I wrote a detailed description on how it works here
 
 https://medium.com/@kevinsimper/how-to-print-name-tags-for-your-meetup-c6293a8faf8f
 
-## Running on a Chromebook
+## Running in the browser
 
-This can be running on a Chromebook, which is ideal because they can be lighter and less expensive hardware.
+This will run in the browser by using a couple of projects.
 
-- Needs to be running Crouton
-- Needs to be running sudo because Google Chrome (and maybe USB devices?)
+- A way to provide the template
+- A way to generate the label
+- A way to connect to the printer
+- A way to provide the attendees names
 
-These dependencies also needs to be installed so that it has all the libraries for rendering:
-https://github.com/Googlechrome/puppeteer/issues/290#issuecomment-322921352
+All running in the browser connected to a Brother QL820NWB printer.
