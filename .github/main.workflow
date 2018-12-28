@@ -4,6 +4,6 @@ workflow "New workflow" {
 }
 
 action "GitHub Action for npm" {
-  uses = "actions/npm@e7aaefe"
-  args = "install"
+  uses = "docker://node:11.6"
+  args = "npm install"
 }
