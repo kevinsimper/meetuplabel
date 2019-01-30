@@ -22,7 +22,7 @@ app.get('/config/save', (req, res) => {
 })
 
 app.get('/test', (req, res) => {
-  const data = {name: req.query.name}
+  const data = { name: req.query.name }
   console.log(data)
   res.send(data)
 })
@@ -33,7 +33,7 @@ app.get('/print', (req, res) => {
   console.log('Browser')
   try {
     exec('node browser.js', {
-      shell: '/bin/bash'
+      shell: '/bin/bash',
     })
   } catch (e) {
     console.log(e)
@@ -44,7 +44,19 @@ app.get('/print', (req, res) => {
     console.log('Print')
     execSync('bash print.sh')
     console.log('Done')
-    res.send('Done')
+
+    // let config = loadConfig()
+    let file = `./data/cphjs.json`
+    let students = []
+    try {
+      students = JSON.parse(readFileSync(file))
+    } catch (e) {
+      console.log(e)
+    }
+    students.push([req.query.name, new Date().toISOString()])
+    writeFileSync(file, JSON.stringify(students, null, 2))
+
+    res.redirect('/')
   }, 2000)
 })
 

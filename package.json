@@ -16,6 +16,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "setup": "mkdir data",
     "clean": "bsb -clean-world",
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
