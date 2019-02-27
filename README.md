@@ -14,3 +14,13 @@ This will run in the browser by using a couple of projects.
 - A way to provide the attendees names
 
 All running in the browser connected to a Brother QL820NWB printer.
+
+## Requirements
+
+```
+brew install libusb
+pip install virtualenv
+virtualenv env
+. ./env/bin/activate
+pip install -r requirement.txt
+```
