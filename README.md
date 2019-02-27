@@ -4,6 +4,8 @@ I wrote a detailed description on how it works here
 
 https://medium.com/@kevinsimper/how-to-print-name-tags-for-your-meetup-c6293a8faf8f
 
+http://www.undocprint.org/formats/page_description_languages/brother_p-touch
+
 ## Running in the browser
 
 This will run in the browser by using a couple of projects.
