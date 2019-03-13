@@ -4,6 +4,7 @@ const { execSync, exec } = require('child_process')
 const main = require('./src/main.bs')
 const ConfigPage = require('./src/ConfigPage.bs')
 const cors = require('cors')
+const prompts = require('prompts')
 
 let readConfig = () => {
   try {
