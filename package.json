@@ -14,12 +14,15 @@
     "react-dom": "^16.4.2",
     "reason-react": "^0.5.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "prettier": "^1.16.4"
+  },
   "scripts": {
+    "start": "mkdir -p outout && node server.js",
     "clean": "bsb -clean-world",
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "prettier -l '*.js'"
   },
   "keywords": [],
   "author": "",
