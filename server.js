@@ -1,12 +1,37 @@
 const express = require('express')
 const { readFileSync, writeFileSync } = require('fs')
 const { execSync, exec } = require('child_process')
+const main = require('./src/main.bs')
+const ConfigPage = require('./src/ConfigPage.bs')
+const cors = require('cors')
+
+let readConfig = () => {
+  try {
+    return JSON.parse(readFileSync('./config.json'))
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      console.log('Did not find config.json - creating one now!')
+      writeConfig({})
+    } else {
+      console.log(err)
+      process.exit(1)
+    }
+  }
+  return readConfig()
+}
+
+let writeConfig = obj => {
+  const config = {
+    event: obj.event || '',
+  }
+  writeFileSync('./config.json', JSON.stringify(config, null, 2))
+}
+
+const config = readConfig()
+
 let app = express()
 app.use(express.static('./label'))
-app.use(require('cors')())
-let main = require('./src/main.bs')
-let ConfigPage = require('./src/ConfigPage.bs')
-
+app.use(cors())
 app.get('/', (req, res) => {
   res.send(main.output())
 })
