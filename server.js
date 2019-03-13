@@ -15,6 +15,7 @@ let readConfig = () => {
       console.log('Did not find config.json - creating one now!')
       writeConfig({})
     } else {
+      console.log('There was a error with config.json:')
       console.log(err)
       process.exit(1)
     }
