@@ -5,6 +5,7 @@ const main = require('./src/main.bs')
 const ConfigPage = require('./src/ConfigPage.bs')
 const cors = require('cors')
 const prompts = require('prompts')
+const qrcode = require('qrcode')
 
 let readConfig = () => {
   try {
@@ -30,7 +31,40 @@ let writeConfig = obj => {
   writeFileSync('./config.json', JSON.stringify(saving, null, 2))
 }
 
-const config = readConfig()
+const askEvent = async () => {
+  let response = await prompts({
+    type: 'text',
+    name: 'event',
+    initial: readConfig().event,
+    message: 'What is the event name?',
+  })
+  if (response.event === readConfig().event) {
+    console.log('Using previous event name')
+  } else {
+    console.log('Updating event name')
+    writeConfig({
+      event: response.event,
+    })
+  }
+}
+const askUrl = async () => {
+  let response = await prompts({
+    type: 'text',
+    name: 'url',
+    initial: readConfig().url,
+    message: 'What is the URL name?',
+  })
+  if (response.url === readConfig().url) {
+    console.log('Using previous URL')
+  } else {
+    console.log('Updating URL')
+    writeConfig({
+      url: response.url,
+    })
+    console.log('Updating QR code')
+    qrcode.toFile('./label/qr.svg', response.url)
+  }
+}
 
 let app = express()
 app.use(express.static('./label'))
