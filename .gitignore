@@ -5,3 +5,9 @@ old
 lib
 label/qr.png
 output
+config.json
+label
+data
+
+# reasonml
+.merlin
