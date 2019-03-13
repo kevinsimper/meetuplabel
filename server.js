@@ -22,10 +22,12 @@ let readConfig = () => {
 }
 
 let writeConfig = obj => {
-  const config = {
-    event: obj.event || '',
+  let config = {
+    event: '',
+    url: '',
   }
-  writeFileSync('./config.json', JSON.stringify(config, null, 2))
+  let saving = Object.assign(config, readConfig(), obj)
+  writeFileSync('./config.json', JSON.stringify(saving, null, 2))
 }
 
 const config = readConfig()
