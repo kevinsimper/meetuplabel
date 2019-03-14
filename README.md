@@ -40,7 +40,7 @@ and then run the server with
 npm start
 ```
 
-Now you will be runnning your app on port `http://localhost:9000`. There is a template by which you will print your label, and you can see it by navigating to `http://localhost:9000/label.html`. This template file can be adjusted to your use case by editing the page in `label/label.html`
+Now you will be runnning your app on port `http://localhost:9000`. There is a template by which you will print your label, and you can see it by navigating to `http://localhost:9000/template.html`. This template file can be adjusted to your use case by editing the page in `label/template.html`
 
 Now you can start the actual printing:
  - Make sure you have your printer connected to your computer/device.
