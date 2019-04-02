@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel serve index.html",
+    "start": "parcel watch --public-url . index.html",
     "test": "jest"
   },
   "keywords": [],
@@ -20,5 +20,8 @@
   },
   "dependencies": {
     "html2canvas": "^1.0.0-alpha.12"
-  }
+  },
+  "browserslist": [
+    "since 2017-06"
+  ]
 }

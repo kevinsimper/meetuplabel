@@ -1,68 +1,87 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <style>
-  * {
-    box-sizing: border-box;
-  }
-  html, body {
-    margin: 0;
-    font-family: sans-serif;
-  }
-  .label {
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1fr;
-    width: 945px;
-    height: 732px;
-    /* border: 1px solid #CCC; */
-  }
-  .name {
-    width: 600px;
-    font-size: 120px;
-    text-align: center;
-  }
-  .event {
-    text-align: center;
-    font-size: 50px;
-    line-height: 65px;
-  }
-  .logo {
-  }
-  .qr {
-    width: 300px;
-  }
-  .qr img {
-    width: 200%;
-  }
-  img {
-    max-width: 100%;
-  }
-  </style>
-</head>
-<body>
-<div class="label">
-  <div class="logo"><img src="docker.png"/></div>
-  <div class="name">
-    <div>##FIRSTNAME##</div>
-    <div>##LASTNAME##</div>
-  </div>
-  <div class="event">Docker<br/>Copenhagen<br/>19th June</div>
-  <div class="qr"><img src="qr.png"/></div>
-</div>
-<script src="fitty.min.js"></script>
-<script>
-fitty('.name > div', {
-  multiLine: true,
-  maxSize: 160
-});
-setInterval(() => {
-  document.querySelectorAll('.name div').forEach(i => {
-    i.style.display = ''
-  })
-}, 50)
-</script>
-</body>
+  <head>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        font-family: sans-serif;
+      }
+      .label {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2fr 1fr;
+        grid-template-areas:
+          'name name name'
+          'logo logo qr';
+        width: 945px;
+        height: 732px;
+        /* border: 1px solid #ccc; */
+      }
+      .name {
+        grid-area: name;
+        width: 860px;
+        font-size: 120px;
+        text-align: center;
+      }
+      .event {
+        text-align: center;
+        font-size: 50px;
+        line-height: 65px;
+      }
+      .logo {
+        grid-area: logo;
+      }
+      .qr {
+        grid-area: qr;
+        width: 300px;
+      }
+      .qr img {
+        width: 200%;
+      }
+      img {
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="label">
+      <div class="name">
+        <div class="namefirst">##FIRSTNAME##</div>
+        <div class="namesecond">##LASTNAME##</div>
+      </div>
+      <div class="logo" style="">
+        <img src="/label/eth.png" style="" />
+      </div>
+      <div class="qr"><img width="300px" src="/label/qr.png" /></div>
+    </div>
+    <script src="/label/fitty.min.js"></script>
+    <script>
+      fitty('.namefirst', {
+        multiLine: true,
+        maxSize: 200,
+      })
+      if (document.querySelector('.namefirst').innerText === '') {
+        fitty('.namesecond', {
+          multiLine: true,
+          maxSize: 200,
+        })
+      } else {
+        fitty('.namesecond', {
+          multiLine: true,
+          maxSize: 150,
+        })
+      }
+      setInterval(() => {
+        document.querySelectorAll('.name div').forEach(i => {
+          i.style.display = ''
+        })
+      }, 50)
+    </script>
+  </body>
 </html>
