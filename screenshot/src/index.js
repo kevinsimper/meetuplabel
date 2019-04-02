@@ -14,10 +14,34 @@ function appendTemplate(html) {
   document.querySelector('#capture').innerHTML = html
 }
 
+function fitText() {
+  fitty('.namefirst', {
+    multiLine: true,
+    maxSize: 200,
+  })
+  if (document.querySelector('.namefirst').innerText === '') {
+    fitty('.namesecond', {
+      multiLine: true,
+      maxSize: 200,
+    })
+  } else {
+    fitty('.namesecond', {
+      multiLine: true,
+      maxSize: 150,
+    })
+  }
+  document.querySelectorAll('.name div').forEach(i => {
+    i.style.display = ''
+  })
+}
+
 async function main() {
   const template = await fetchTemplate()
   await appendTemplate(template)
-  await generateCanvas()
+  fitText()
+  setTimeout(() => {
+    generateCanvas()
+  }, 50)
 }
 
 main()
