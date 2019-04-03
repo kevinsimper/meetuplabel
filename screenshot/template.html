@@ -1,0 +1,57 @@
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    margin: 0;
+    font-family: sans-serif;
+  }
+  .label {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas:
+      'name name name'
+      'logo logo qr';
+    width: 945px;
+    height: 732px;
+    /* border: 1px solid #ccc; */
+  }
+  .name {
+    grid-area: name;
+    width: 860px;
+    font-size: 120px;
+    text-align: center;
+  }
+  .event {
+    text-align: center;
+    font-size: 50px;
+    line-height: 65px;
+  }
+  .logo {
+    grid-area: logo;
+  }
+  .qr {
+    grid-area: qr;
+    width: 300px;
+  }
+  .qr img {
+    width: 200%;
+  }
+  img {
+    max-width: 100%;
+  }
+</style>
+<div class="label">
+  <div class="name">
+    <div class="namefirst">##FIRSTNAME##</div>
+    <div class="namesecond">##LASTNAME##</div>
+  </div>
+  <div class="logo" style="">
+    <img src="/label/eth.png" style="" />
+  </div>
+  <div class="qr"><img width="300px" src="/label/qr.png" /></div>
+</div>
