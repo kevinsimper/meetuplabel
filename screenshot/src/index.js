@@ -1,17 +1,34 @@
 import html2canvas from 'html2canvas'
+import { Buffer } from 'buffer/'
+import raster from '../../raster/src/'
+import { rotate } from '../../raster/src/rotateImage'
+import fitty from './fitty.min.js'
+import { connect, print } from '../../labelusb/src/index'
+
+let device
+
+window.connect = () => {
+  connect().then(_device => {
+    device = _device
+    console.log(device)
+  })
+}
+
+const capture = document.querySelector('#capture')
 
 function fetchTemplate() {
-  return fetch('/label/template.html').then(r => r.text())
+  return fetch('../template.html').then(r => r.text())
 }
 
 function generateCanvas() {
-  return html2canvas(document.querySelector('#capture'), {}).then(canvas => {
+  return html2canvas(capture, {}).then(canvas => {
     document.body.appendChild(canvas)
+    return canvas
   })
 }
 
 function appendTemplate(html) {
-  document.querySelector('#capture').innerHTML = html
+  capture.innerHTML = html
 }
 
 function fitText() {
@@ -35,13 +52,32 @@ function fitText() {
   })
 }
 
+function updateName(template, firstname, lastname) {
+  return template
+    .replace('##FIRSTNAME##', firstname)
+    .replace('##LASTNAME##', lastname)
+}
+
+function generatePNG() {}
+
 async function main() {
   const template = await fetchTemplate()
-  await appendTemplate(template)
+  await appendTemplate(updateName(template, 'Kevin', 'Simper'))
   fitText()
-  setTimeout(() => {
-    generateCanvas()
+  setTimeout(async () => {
+    const canvas = await generateCanvas()
+    canvas.toBlob(blob => {
+      let reader = new FileReader()
+      reader.onloadend = async function() {
+        console.log(reader.result)
+        console.log(device)
+        const result = await rotate(Buffer.from(reader.result))
+        const rasterResult = raster(result)
+        // device.transferOut(2, rasterResult)
+      }
+      reader.readAsArrayBuffer(blob)
+    })
   }, 50)
 }
 
-main()
+window.main = main

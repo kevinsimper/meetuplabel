@@ -11,10 +11,12 @@ const filters = [
   },
 ]
 
-window.connect = function() {
-  let devices = navigator.usb.requestDevice({ filters: filters })
-
-  devices
+window.connect = exports.connect = connect
+function connect() {
+  // endpoint number: 2 (out, bulk)
+  // interfaceNumner, alternateSetting
+  return navigator.usb
+    .requestDevice({ filters: filters })
     .then(selectedDevice => {
       console.log(selectedDevice.productName)
       console.log(selectedDevice.manufacturerName)
@@ -24,13 +26,15 @@ window.connect = function() {
     })
     .then(() => device.selectConfiguration(1))
     .then(() => device.claimInterface(0))
-    // interfaceNumner, alternateSetting
     .then(() => device.selectAlternateInterface(0, 0))
-    // endpoint number: 2 (out, bulk)
+    .then(() => {
+      return device
+    })
     .catch(e => console.log(e))
 }
 
-window.print = function() {
+window.connect = exports.print = print
+function print() {
   const f = file.files[0]
   let reader = new FileReader()
   reader.onloadend = async function() {

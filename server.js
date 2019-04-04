@@ -63,7 +63,9 @@ const askUrl = async () => {
       url: response.url,
     })
     console.log('Updating QR code')
-    qrcode.toFile('./label/qr.svg', response.url)
+    qrcode.toFile('./label/qr.png', response.url, {
+      width: 300,
+    })
   }
 }
 
