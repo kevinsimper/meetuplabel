@@ -26,6 +26,14 @@ function generateCanvas() {
     return canvas
   })
 }
+async function previewCanvas() {
+  await prepareTemplate()
+  setTimeout(async () => {
+    const canvas = await html2canvas(capture, {})
+    document.body.appendChild(canvas)
+  }, 50)
+}
+window.previewCanvas = previewCanvas
 
 function printLabel(label) {
   device.transferOut(2, label)
@@ -80,12 +88,15 @@ function updateName(template, firstname, lastname) {
 
 function generatePNG() {}
 
-async function main() {
+async function prepareTemplate() {
   const input = document.querySelector('#inputname').value.split(' ')
   const template = await fetchTemplate()
 
   await appendTemplate(updateName(template, input[0], input[1]))
   fitText()
+}
+
+async function main() {
   setTimeout(async () => {
     const canvas = await generateCanvas()
     const raster = await fetchDataFromCanvas(canvas)
