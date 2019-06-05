@@ -26,6 +26,34 @@ function generateCanvas() {
     return canvas
   })
 }
+async function previewCanvas() {
+  await prepareTemplate()
+  setTimeout(async () => {
+    const canvas = await html2canvas(capture, {})
+    document.body.appendChild(canvas)
+  }, 50)
+}
+window.previewCanvas = previewCanvas
+
+function printLabel(label) {
+  device.transferOut(2, label)
+}
+
+function fetchDataFromCanvas(canvas) {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(blob => {
+      let reader = new FileReader()
+      reader.onloadend = async function() {
+        console.log(reader.result)
+        console.log(device)
+        const result = await rotate(Buffer.from(reader.result))
+        const rasterResult = raster(result)
+        resolve(rasterResult)
+      }
+      reader.readAsArrayBuffer(blob)
+    })
+  })
+}
 
 function appendTemplate(html) {
   capture.innerHTML = html
@@ -60,23 +88,19 @@ function updateName(template, firstname, lastname) {
 
 function generatePNG() {}
 
-async function main() {
+async function prepareTemplate() {
+  const input = document.querySelector('#inputname').value.split(' ')
   const template = await fetchTemplate()
-  await appendTemplate(updateName(template, 'Kevin', 'Simper'))
+
+  await appendTemplate(updateName(template, input[0], input[1]))
   fitText()
+}
+
+async function main() {
   setTimeout(async () => {
     const canvas = await generateCanvas()
-    canvas.toBlob(blob => {
-      let reader = new FileReader()
-      reader.onloadend = async function() {
-        console.log(reader.result)
-        console.log(device)
-        const result = await rotate(Buffer.from(reader.result))
-        const rasterResult = raster(result)
-        // device.transferOut(2, rasterResult)
-      }
-      reader.readAsArrayBuffer(blob)
-    })
+    const raster = await fetchDataFromCanvas(canvas)
+    printLabel(raster)
   }, 50)
 }
 

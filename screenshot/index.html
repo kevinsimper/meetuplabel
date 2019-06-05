@@ -1,5 +1,21 @@
 <html>
   <body>
+    <style>
+      #controls,
+      #controls button,
+      #controls input {
+        font-size: 30px;
+      }
+      #capture {
+        width: 945px;
+      }
+    </style>
+    <div id="controls">
+      <label>Name: <input id="inputname" value="Kevin Simper"/></label>
+      <button onClick="previewCanvas()">previewCanvas</button>
+      <button onClick="connect()">Connect</button>
+      <button onClick="main()">Print</button>
+    </div>
     <div id="capture"></div>
     <script src="src/fitty.min.js"></script>
     <script src="src/index.js"></script>

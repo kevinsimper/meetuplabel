@@ -11,7 +11,7 @@ const filters = [
   },
 ]
 
-window.connect = exports.connect = connect
+exports.connect = connect
 function connect() {
   // endpoint number: 2 (out, bulk)
   // interfaceNumner, alternateSetting
@@ -33,7 +33,7 @@ function connect() {
     .catch(e => console.log(e))
 }
 
-window.connect = exports.print = print
+exports.print = print
 function print() {
   const f = file.files[0]
   let reader = new FileReader()
