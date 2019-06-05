@@ -1,8 +1,6 @@
 const express = require('express')
 const { readFileSync, writeFileSync } = require('fs')
 const { execSync, exec } = require('child_process')
-const mainPage = require('./src/main.bs')
-const ConfigPage = require('./src/ConfigPage.bs')
 const cors = require('cors')
 const prompts = require('prompts')
 const qrcode = require('qrcode')
@@ -73,11 +71,8 @@ const main = async () => {
   await askEvent()
   await askUrl()
   let app = express()
-  app.use(express.static('./label'))
+  app.use(express.static('./'))
   app.use(cors())
-  app.get('/', (req, res) => {
-    res.send(mainPage.output())
-  })
 
   app.get('/config', (req, res) => {
     let config = JSON.parse(readFileSync('./config.json'))
